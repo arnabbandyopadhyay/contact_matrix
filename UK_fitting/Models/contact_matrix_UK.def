@@ -1,0 +1,462 @@
+DESCRIPTION
+// Stores meta information about the model
+
+
+PREDICTOR
+// define predictor/independent variable
+// [identifier, unitType, "unit", "label", minRange, maxRange]  
+t           T   "h"   "time"  0   7
+
+COMPARTMENTS
+// define compartments of the system
+// [identifier, unitType, "unit", "label", size]
+// size can be estimated -> leave size empty and change using arSetPars
+// leave section empty if no compartment is needed
+
+STATES
+// species changing over time
+// [identifier, unitType, "unit", "label" (e.g. "conc"), compartment,
+//  plot (1/0), "speciesLabel", alwaysPositive (1,0) ]   
+sus_a1          C   "#"    "conc."  
+exp_a1          C   "#"    "conc."  
+ci_a1              C   "#"    "conc."  
+cr_a1             C   "#"    "conc."  
+ih_a1           C   "#"    "conc."  
+ir_a1              C   "#"    "conc."  
+hu_a1             C   "#"    "conc."  
+hr_a1             C   "#"    "conc."
+ud_a1             C   "#"    "conc."  
+ur_a1             C   "#"    "conc." 
+rz_a1             C   "#"    "conc."
+dead_a1             C   "#"    "conc." 
+rx_a1             C   "#"    "conc." 
+ix_a1             C   "#"    "conc."
+//
+sus_a2          C   "#"    "conc."  
+exp_a2          C   "#"    "conc."  
+ci_a2              C   "#"    "conc."  
+cr_a2             C   "#"    "conc."  
+ih_a2           C   "#"    "conc."  
+ir_a2              C   "#"    "conc."  
+hu_a2             C   "#"    "conc."  
+hr_a2             C   "#"    "conc."
+ud_a2             C   "#"    "conc."  
+ur_a2             C   "#"    "conc." 
+rz_a2             C   "#"    "conc."
+dead_a2             C   "#"    "conc." 
+rx_a2             C   "#"    "conc." 
+ix_a2             C   "#"    "conc."
+//
+sus_a3          C   "#"    "conc."  
+exp_a3          C   "#"    "conc."  
+ci_a3              C   "#"    "conc."  
+cr_a3             C   "#"    "conc."  
+ih_a3           C   "#"    "conc."  
+ir_a3              C   "#"    "conc."  
+hu_a3             C   "#"    "conc."  
+hr_a3             C   "#"    "conc."
+ud_a3             C   "#"    "conc."  
+ur_a3             C   "#"    "conc." 
+rz_a3             C   "#"    "conc."
+dead_a3             C   "#"    "conc." 
+rx_a3             C   "#"    "conc." 
+ix_a3             C   "#"    "conc."
+//
+sus_a4          C   "#"    "conc."  
+exp_a4          C   "#"    "conc."  
+ci_a4              C   "#"    "conc."  
+cr_a4             C   "#"    "conc."  
+ih_a4           C   "#"    "conc."  
+ir_a4              C   "#"    "conc."  
+hu_a4             C   "#"    "conc."  
+hr_a4             C   "#"    "conc."
+ud_a4             C   "#"    "conc."  
+ur_a4             C   "#"    "conc." 
+rz_a4             C   "#"    "conc."
+dead_a4             C   "#"    "conc." 
+rx_a4             C   "#"    "conc." 
+ix_a4             C   "#"    "conc."
+//
+sus_a5          C   "#"    "conc."  
+exp_a5          C   "#"    "conc."  
+ci_a5              C   "#"    "conc."  
+cr_a5             C   "#"    "conc."  
+ih_a5           C   "#"    "conc."  
+ir_a5              C   "#"    "conc."  
+hu_a5             C   "#"    "conc."  
+hr_a5             C   "#"    "conc."
+ud_a5             C   "#"    "conc."  
+ur_a5             C   "#"    "conc." 
+rz_a5             C   "#"    "conc."
+dead_a5             C   "#"    "conc." 
+rx_a5             C   "#"    "conc." 
+ix_a5             C   "#"    "conc."
+//
+sus_a6          C   "#"    "conc."  
+exp_a6          C   "#"    "conc."  
+ci_a6              C   "#"    "conc."  
+cr_a6             C   "#"    "conc."  
+ih_a6           C   "#"    "conc."  
+ir_a6              C   "#"    "conc."  
+hu_a6             C   "#"    "conc."  
+hr_a6             C   "#"    "conc."
+ud_a6             C   "#"    "conc."  
+ur_a6             C   "#"    "conc." 
+rz_a6             C   "#"    "conc."
+dead_a6             C   "#"    "conc." 
+rx_a6             C   "#"    "conc." 
+ix_a6             C   "#"    "conc."
+//
+sus_a7          C   "#"    "conc."  
+exp_a7          C   "#"    "conc."  
+ci_a7              C   "#"    "conc."  
+cr_a7             C   "#"    "conc."  
+ih_a7           C   "#"    "conc."  
+ir_a7              C   "#"    "conc."  
+hu_a7             C   "#"    "conc."  
+hr_a7             C   "#"    "conc."
+ud_a7             C   "#"    "conc."  
+ur_a7             C   "#"    "conc." 
+rz_a7             C   "#"    "conc."
+dead_a7             C   "#"    "conc." 
+rx_a7             C   "#"    "conc." 
+ix_a7             C   "#"    "conc."
+
+
+INPUTS
+// Define input over independent variable
+// [identifier, unitType, "unit", "label", mathematicalExpression]
+
+
+//REACTIONS
+// can be defined by ODEs or biochemical reactions
+// For reactions:
+// [substrate -> product, reactionType, "ractionRate", "label"] 
+
+ODES
+// for every species one line with the "mathematical expressions"
+// e.g. "k1 * x - k2 * y"
+
+"-r1_a1*cm11*(ci_a1+cr_a1+ki*ix_a1+bet*(ih_a1+ir_a1))*sus_a1/15620000 -r1_a1*cm12*(ci_a2+cr_a2+ki*ix_a2+bet*(ih_a2+ir_a2))*sus_a1/15620000-r1_a1*cm13*(ci_a3+cr_a3+ki*ix_a3+bet*(ih_a3+ir_a3))*sus_a1/15620000-r1_a1*cm14*(ci_a4+cr_a4+ki*ix_a4+bet*(ih_a4+ir_a4))*sus_a1/15620000-r1_a1*cm15*(ci_a5+cr_a5+ki*ix_a5+bet*(ih_a5+ir_a5))*sus_a1/15620000-r1_a1*cm16*(ci_a6+cr_a6+ki*ix_a6+bet*(ih_a6+ir_a6))*sus_a1/15620000-r1_a1*cm17*(ci_a7+cr_a7+ki*ix_a7+bet*(ih_a7+ir_a7))*sus_a1/15620000"     // sus
+//
+"r1_a1*cm11*(ci_a1+cr_a1+ki*ix_a1+bet*(ih_a1+ir_a1))*sus_a1/15620000+r1_a1*cm12*(ci_a2+cr_a2+ki*ix_a2+bet*(ih_a2+ir_a2))*sus_a1/15620000+r1_a1*cm13*(ci_a3+cr_a3+ki*ix_a3+bet*(ih_a3+ir_a3))*sus_a1/15620000+r1_a1*cm14*(ci_a4+cr_a4+ki*ix_a4+bet*(ih_a4+ir_a4))*sus_a1/15620000+r1_a1*cm15*(ci_a5+cr_a5+ki*ix_a5+bet*(ih_a5+ir_a5))*sus_a1/15620000+r1_a1*cm16*(ci_a6+cr_a6+ki*ix_a6+bet*(ih_a6+ir_a6))*sus_a1/15620000+r1_a1*cm17*(ci_a7+cr_a7+ki*ix_a7+bet*(ih_a7+ir_a7))*sus_a1/15620000 -(r3/(r3*5.2 -1))*exp_a1"     // exposed
+//
+"(1-alpha)*(r3/(r3*5.2 -1))*exp_a1 - r3*ci_a1" //CI
+"alpha*(r3/(r3*5.2 -1))*exp_a1 - cr_a1*(2*r3*r4/(2*r4+r3))" //CR
+"((1-und)/(1-alpha))*rho_a1*r3*ci_a1-r6*ih_a1" //IH
+"((1-und)/(1-alpha))*(1-rho_a1)*r3*ci_a1-r4*ir_a1" //IR
+"thet_a1*r6*ih_a1 - r7*hu_a1" //HU
+"(1-thet_a1)*r6*ih_a1 - hr_a1*r5" //HR
+"delta_a1*r7*hu_a1 - d_a1*ud_a1" // UD
+"(1-delta_a1)*r7*hu_a1 - ur_a1*r8" //UR
+"ir_a1*r4 + hr_a1*r5 + ur_a1*r8"  // RZ
+"d_a1*ud_a1"  //dead
+"cr_a1*(2*r3*r4/(2*r4+r3))+r4*ix_a1"  //RX
+"(1-((1-und)/(1-alpha)))*r3*ci_a1-r4*ix_a1" // IX
+//
+"-r1_a2*cm21*(ci_a1+cr_a1+ki*ix_a1+bet*(ih_a1+ir_a1))*sus_a2/8660000 -r1_a2*cm22*(ci_a2+cr_a2+ki*ix_a2+bet*(ih_a2+ir_a2))*sus_a2/8660000-r1_a2*cm23*(ci_a3+cr_a3+ki*ix_a3+bet*(ih_a3+ir_a3))*sus_a2/8660000-r1_a2*cm24*(ci_a4+cr_a4+ki*ix_a4+bet*(ih_a4+ir_a4))*sus_a2/8660000-r1_a2*cm25*(ci_a5+cr_a5+ki*ix_a5+bet*(ih_a5+ir_a5))*sus_a2/8660000-r1_a2*cm26*(ci_a6+cr_a6+ki*ix_a6+bet*(ih_a6+ir_a6))*sus_a2/8660000-r1_a2*cm27*(ci_a7+cr_a7+ki*ix_a7+bet*(ih_a7+ir_a7))*sus_a2/8660000"     // sus
+//
+"r1_a2*cm21*(ci_a1+cr_a1+ki*ix_a1+bet*(ih_a1+ir_a1))*sus_a2/8660000+r1_a2*cm22*(ci_a2+cr_a2+ki*ix_a2+bet*(ih_a2+ir_a2))*sus_a2/8660000+r1_a2*cm23*(ci_a3+cr_a3+ki*ix_a3+bet*(ih_a3+ir_a3))*sus_a2/8660000+r1_a2*cm24*(ci_a4+cr_a4+ki*ix_a4+bet*(ih_a4+ir_a4))*sus_a2/8660000+r1_a2*cm25*(ci_a5+cr_a5+ki*ix_a5+bet*(ih_a5+ir_a5))*sus_a2/8660000+r1_a2*cm26*(ci_a6+cr_a6+ki*ix_a6+bet*(ih_a6+ir_a6))*sus_a2/8660000+r1_a2*cm27*(ci_a7+cr_a7+ki*ix_a7+bet*(ih_a7+ir_a7))*sus_a2/8660000 -(r3/(r3*5.2 -1))*exp_a2"     // exposed
+//
+"(1-alpha)*(r3/(r3*5.2 -1))*exp_a2 - r3*ci_a2" //CI
+"alpha*(r3/(r3*5.2 -1))*exp_a2 - cr_a2*(2*r3*r4/(2*r4+r3))" //CR
+"((1-und)/(1-alpha))*rho_a2*r3*ci_a2-r6*ih_a2" //IH
+"((1-und)/(1-alpha))*(1-rho_a2)*r3*ci_a2-r4*ir_a2" //IR
+"thet_a2*r6*ih_a2 - r7*hu_a2" //HU
+"(1-thet_a2)*r6*ih_a2 - hr_a2*r5" //HR
+"delta_a2*r7*hu_a2 - d_a2*ud_a2" // UD
+"(1-delta_a2)*r7*hu_a2 - ur_a2*r8" //UR
+"ir_a2*r4 + hr_a2*r5 + ur_a2*r8"  // RZ
+"d_a2*ud_a2"  //dead
+"cr_a2*(2*r3*r4/(2*r4+r3))+r4*ix_a2"  //RX
+"(1-((1-und)/(1-alpha)))*r3*ci_a2-r4*ix_a2" // IX
+//
+"-r1_a3*cm31*(ci_a1+cr_a1+ki*ix_a1+bet*(ih_a1+ir_a1))*sus_a3/8900000 -r1_a3*cm32*(ci_a2+cr_a2+ki*ix_a2+bet*(ih_a2+ir_a2))*sus_a3/8900000-r1_a3*cm33*(ci_a3+cr_a3+ki*ix_a3+bet*(ih_a3+ir_a3))*sus_a3/8900000-r1_a3*cm34*(ci_a4+cr_a4+ki*ix_a4+bet*(ih_a4+ir_a4))*sus_a3/8900000-r1_a3*cm35*(ci_a5+cr_a5+ki*ix_a5+bet*(ih_a5+ir_a5))*sus_a3/8900000-r1_a3*cm36*(ci_a6+cr_a6+ki*ix_a6+bet*(ih_a6+ir_a6))*sus_a3/8900000-r1_a3*cm37*(ci_a7+cr_a7+ki*ix_a7+bet*(ih_a7+ir_a7))*sus_a3/8900000"     // sus
+//
+"r1_a3*cm31*(ci_a1+cr_a1+ki*ix_a1+bet*(ih_a1+ir_a1))*sus_a3/8900000+r1_a3*cm32*(ci_a2+cr_a2+ki*ix_a2+bet*(ih_a2+ir_a2))*sus_a3/8900000+r1_a3*cm33*(ci_a3+cr_a3+ki*ix_a3+bet*(ih_a3+ir_a3))*sus_a3/8900000+r1_a3*cm34*(ci_a4+cr_a4+ki*ix_a4+bet*(ih_a4+ir_a4))*sus_a3/8900000+r1_a3*cm35*(ci_a5+cr_a5+ki*ix_a5+bet*(ih_a5+ir_a5))*sus_a3/8900000+r1_a3*cm36*(ci_a6+cr_a6+ki*ix_a6+bet*(ih_a6+ir_a6))*sus_a3/8900000+r1_a3*cm37*(ci_a7+cr_a7+ki*ix_a7+bet*(ih_a7+ir_a7))*sus_a3/8900000 -(r3/(r3*5.2 -1))*exp_a3"     // exposed
+//
+"(1-alpha)*(r3/(r3*5.2 -1))*exp_a3 - r3*ci_a3" //CI
+"alpha*(r3/(r3*5.2 -1))*exp_a3 - cr_a3*(2*r3*r4/(2*r4+r3))" //CR
+"((1-und)/(1-alpha))*rho_a3*r3*ci_a3-r6*ih_a3" //IH
+"((1-und)/(1-alpha))*(1-rho_a3)*r3*ci_a3-r4*ir_a3" //IR
+"thet_a3*r6*ih_a3 - r7*hu_a3" //HU
+"(1-thet_a3)*r6*ih_a3 - hr_a3*r5" //HR
+"delta_a3*r7*hu_a3 - d_a3*ud_a3" // UD
+"(1-delta_a3)*r7*hu_a3 - ur_a3*r8" //UR
+"ir_a3*r4 + hr_a3*r5 + ur_a3*r8"  // RZ
+"d_a3*ud_a3"  //dead
+"cr_a3*(2*r3*r4/(2*r4+r3))+r4*ix_a3"  //RX
+"(1-((1-und)/(1-alpha)))*r3*ci_a3-r4*ix_a3" // IX
+//
+"-r1_a4*cm41*(ci_a1+cr_a1+ki*ix_a1+bet*(ih_a1+ir_a1))*sus_a4/8420000 -r1_a4*cm42*(ci_a2+cr_a2+ki*ix_a2+bet*(ih_a2+ir_a2))*sus_a4/8420000-r1_a4*cm43*(ci_a3+cr_a3+ki*ix_a3+bet*(ih_a3+ir_a3))*sus_a4/8420000-r1_a4*cm44*(ci_a4+cr_a4+ki*ix_a4+bet*(ih_a4+ir_a4))*sus_a4/8420000-r1_a4*cm45*(ci_a5+cr_a5+ki*ix_a5+bet*(ih_a5+ir_a5))*sus_a4/8420000-r1_a4*cm46*(ci_a6+cr_a6+ki*ix_a6+bet*(ih_a6+ir_a6))*sus_a4/8420000-r1_a4*cm47*(ci_a7+cr_a7+ki*ix_a7+bet*(ih_a7+ir_a7))*sus_a4/8420000"     // sus
+//
+"r1_a4*cm41*(ci_a1+cr_a1+ki*ix_a1+bet*(ih_a1+ir_a1))*sus_a4/8420000+r1_a4*cm42*(ci_a2+cr_a2+ki*ix_a2+bet*(ih_a2+ir_a2))*sus_a4/8420000+r1_a4*cm43*(ci_a3+cr_a3+ki*ix_a3+bet*(ih_a3+ir_a3))*sus_a4/8420000+r1_a4*cm44*(ci_a4+cr_a4+ki*ix_a4+bet*(ih_a4+ir_a4))*sus_a4/8420000+r1_a4*cm45*(ci_a5+cr_a5+ki*ix_a5+bet*(ih_a5+ir_a5))*sus_a4/8420000+r1_a4*cm46*(ci_a6+cr_a6+ki*ix_a6+bet*(ih_a6+ir_a6))*sus_a4/8420000+r1_a4*cm47*(ci_a7+cr_a7+ki*ix_a7+bet*(ih_a7+ir_a7))*sus_a4/8420000 -(r3/(r3*5.2 -1))*exp_a4"     // exposed
+//
+"(1-alpha)*(r3/(r3*5.2 -1))*exp_a4 - r3*ci_a4" //CI
+"alpha*(r3/(r3*5.2 -1))*exp_a4 - cr_a4*(2*r3*r4/(2*r4+r3))" //CR
+"((1-und)/(1-alpha))*rho_a4*r3*ci_a4-r6*ih_a4" //IH
+"((1-und)/(1-alpha))*(1-rho_a4)*r3*ci_a4-r4*ir_a4" //IR
+"thet_a4*r6*ih_a4 - r7*hu_a4" //HU
+"(1-thet_a4)*r6*ih_a4 - hr_a4*r5" //HR
+"delta_a4*r7*hu_a4 - d_a4*ud_a4" // UD
+"(1-delta_a4)*r7*hu_a4 - ur_a4*r8" //UR
+"ir_a4*r4 + hr_a4*r5 + ur_a4*r8"  // RZ
+"d_a4*ud_a4"  //dead
+"cr_a4*(2*r3*r4/(2*r4+r3))+r4*ix_a4"  //RX
+"(1-((1-und)/(1-alpha)))*r3*ci_a4-r4*ix_a4" // IX
+//
+"-r1_a5*cm51*(ci_a1+cr_a1+ki*ix_a1+bet*(ih_a1+ir_a1))*sus_a5/9070000 -r1_a5*cm52*(ci_a2+cr_a2+ki*ix_a2+bet*(ih_a2+ir_a2))*sus_a5/9070000-r1_a5*cm53*(ci_a3+cr_a3+ki*ix_a3+bet*(ih_a3+ir_a3))*sus_a5/9070000-r1_a5*cm54*(ci_a4+cr_a4+ki*ix_a4+bet*(ih_a4+ir_a4))*sus_a5/9070000-r1_a5*cm55*(ci_a5+cr_a5+ki*ix_a5+bet*(ih_a5+ir_a5))*sus_a5/9070000-r1_a5*cm56*(ci_a6+cr_a6+ki*ix_a6+bet*(ih_a6+ir_a6))*sus_a5/9070000-r1_a5*cm57*(ci_a7+cr_a7+ki*ix_a7+bet*(ih_a7+ir_a7))*sus_a5/9070000"     // sus
+//
+"r1_a5*cm51*(ci_a1+cr_a1+ki*ix_a1+bet*(ih_a1+ir_a1))*sus_a5/9070000+r1_a5*cm52*(ci_a2+cr_a2+ki*ix_a2+bet*(ih_a2+ir_a2))*sus_a5/9070000+r1_a5*cm53*(ci_a3+cr_a3+ki*ix_a3+bet*(ih_a3+ir_a3))*sus_a5/9070000+r1_a5*cm54*(ci_a4+cr_a4+ki*ix_a4+bet*(ih_a4+ir_a4))*sus_a5/9070000+r1_a5*cm55*(ci_a5+cr_a5+ki*ix_a5+bet*(ih_a5+ir_a5))*sus_a5/9070000+r1_a5*cm56*(ci_a6+cr_a6+ki*ix_a6+bet*(ih_a6+ir_a6))*sus_a5/9070000+r1_a5*cm57*(ci_a7+cr_a7+ki*ix_a7+bet*(ih_a7+ir_a7))*sus_a5/9070000 -(r3/(r3*5.2 -1))*exp_a5"     // exposed
+//
+"(1-alpha)*(r3/(r3*5.2 -1))*exp_a5 - r3*ci_a5" //CI
+"alpha*(r3/(r3*5.2 -1))*exp_a5 - cr_a5*(2*r3*r4/(2*r4+r3))" //CR
+"((1-und)/(1-alpha))*rho_a5*r3*ci_a5-r6*ih_a5" //IH
+"((1-und)/(1-alpha))*(1-rho_a5)*r3*ci_a5-r4*ir_a5" //IR
+"thet_a5*r6*ih_a5 - r7*hu_a5" //HU
+"(1-thet_a5)*r6*ih_a5 - hr_a5*r5" //HR
+"delta_a5*r7*hu_a5 - d_a5*ud_a5" // UD
+"(1-delta_a5)*r7*hu_a5 - ur_a5*r8" //UR
+"ir_a5*r4 + hr_a5*r5 + ur_a5*r8"  // RZ
+"d_a5*ud_a5"  //dead
+"cr_a5*(2*r3*r4/(2*r4+r3))+r4*ix_a5"  //RX
+"(1-((1-und)/(1-alpha)))*r3*ci_a5-r4*ix_a5" // IX
+//
+"-r1_a6*cm61*(ci_a1+cr_a1+ki*ix_a1+bet*(ih_a1+ir_a1))*sus_a6/7130000 -r1_a6*cm62*(ci_a2+cr_a2+ki*ix_a2+bet*(ih_a2+ir_a2))*sus_a6/7130000-r1_a6*cm63*(ci_a3+cr_a3+ki*ix_a3+bet*(ih_a3+ir_a3))*sus_a6/7130000-r1_a6*cm64*(ci_a4+cr_a4+ki*ix_a4+bet*(ih_a4+ir_a4))*sus_a6/7130000-r1_a6*cm65*(ci_a5+cr_a5+ki*ix_a5+bet*(ih_a5+ir_a5))*sus_a6/7130000-r1_a6*cm66*(ci_a6+cr_a6+ki*ix_a6+bet*(ih_a6+ir_a6))*sus_a6/7130000-r1_a6*cm67*(ci_a7+cr_a7+ki*ix_a7+bet*(ih_a7+ir_a7))*sus_a6/7130000"     // sus
+//
+"r1_a6*cm61*(ci_a1+cr_a1+ki*ix_a1+bet*(ih_a1+ir_a1))*sus_a6/7130000+r1_a6*cm62*(ci_a2+cr_a2+ki*ix_a2+bet*(ih_a2+ir_a2))*sus_a6/7130000+r1_a6*cm63*(ci_a3+cr_a3+ki*ix_a3+bet*(ih_a3+ir_a3))*sus_a6/7130000+r1_a6*cm64*(ci_a4+cr_a4+ki*ix_a4+bet*(ih_a4+ir_a4))*sus_a6/7130000+r1_a6*cm65*(ci_a5+cr_a5+ki*ix_a5+bet*(ih_a5+ir_a5))*sus_a6/7130000+r1_a6*cm66*(ci_a6+cr_a6+ki*ix_a6+bet*(ih_a6+ir_a6))*sus_a6/7130000+r1_a6*cm67*(ci_a7+cr_a7+ki*ix_a7+bet*(ih_a7+ir_a7))*sus_a6/7130000 -(r3/(r3*5.2 -1))*exp_a6"     // exposed
+//
+"(1-alpha)*(r3/(r3*5.2 -1))*exp_a6 - r3*ci_a6" //CI
+"alpha*(r3/(r3*5.2 -1))*exp_a6 - cr_a6*(2*r3*r4/(2*r4+r3))" //CR
+"((1-und)/(1-alpha))*rho_a6*r3*ci_a6-r6*ih_a6" //IH
+"((1-und)/(1-alpha))*(1-rho_a6)*r3*ci_a6-r4*ir_a6" //IR
+"thet_a6*r6*ih_a6 - r7*hu_a6" //HU
+"(1-thet_a6)*r6*ih_a6 - hr_a6*r5" //HR
+"delta_a6*r7*hu_a6 - d_a6*ud_a6" // UD
+"(1-delta_a6)*r7*hu_a6 - ur_a6*r8" //UR
+"ir_a6*r4 + hr_a6*r5 + ur_a6*r8"  // RZ
+"d_a6*ud_a6"  //dead
+"cr_a6*(2*r3*r4/(2*r4+r3))+r4*ix_a6"  //RX
+"(1-((1-und)/(1-alpha)))*r3*ci_a6-r4*ix_a6" // IX
+//
+"-r1_a7*cm71*(ci_a1+cr_a1+ki*ix_a1+bet*(ih_a1+ir_a1))*sus_a7/9020000 -r1_a7*cm72*(ci_a2+cr_a2+ki*ix_a2+bet*(ih_a2+ir_a2))*sus_a7/9020000-r1_a7*cm73*(ci_a3+cr_a3+ki*ix_a3+bet*(ih_a3+ir_a3))*sus_a7/9020000-r1_a7*cm74*(ci_a4+cr_a4+ki*ix_a4+bet*(ih_a4+ir_a4))*sus_a7/9020000-r1_a7*cm75*(ci_a5+cr_a5+ki*ix_a5+bet*(ih_a5+ir_a5))*sus_a7/9020000-r1_a7*cm76*(ci_a6+cr_a6+ki*ix_a6+bet*(ih_a6+ir_a6))*sus_a7/9020000-r1_a7*cm77*(ci_a7+cr_a7+ki*ix_a7+bet*(ih_a7+ir_a7))*sus_a7/9020000"     // sus
+//
+"r1_a7*cm71*(ci_a1+cr_a1+ki*ix_a1+bet*(ih_a1+ir_a1))*sus_a7/9020000+r1_a7*cm72*(ci_a2+cr_a2+ki*ix_a2+bet*(ih_a2+ir_a2))*sus_a7/9020000+r1_a7*cm73*(ci_a3+cr_a3+ki*ix_a3+bet*(ih_a3+ir_a3))*sus_a7/9020000+r1_a7*cm74*(ci_a4+cr_a4+ki*ix_a4+bet*(ih_a4+ir_a4))*sus_a7/9020000+r1_a7*cm75*(ci_a5+cr_a5+ki*ix_a5+bet*(ih_a5+ir_a5))*sus_a7/9020000+r1_a7*cm76*(ci_a6+cr_a6+ki*ix_a6+bet*(ih_a6+ir_a6))*sus_a7/9020000+r1_a7*cm77*(ci_a7+cr_a7+ki*ix_a7+bet*(ih_a7+ir_a7))*sus_a7/9020000 -(r3/(r3*5.2 -1))*exp_a7"     // exposed
+//
+"(1-alpha)*(r3/(r3*5.2 -1))*exp_a7 - r3*ci_a7" //CI
+"alpha*(r3/(r3*5.2 -1))*exp_a7 - cr_a7*(2*r3*r4/(2*r4+r3))" //CR
+"((1-und)/(1-alpha))*rho_a7*r3*ci_a7-r6*ih_a7" //IH
+"((1-und)/(1-alpha))*(1-rho_a7)*r3*ci_a7-r4*ir_a7" //IR
+"thet_a7*r6*ih_a7 - r7*hu_a7" //HU
+"(1-thet_a7)*r6*ih_a7 - hr_a7*r5" //HR
+"delta_a7*r7*hu_a7 - d_a7*ud_a7" // UD
+"(1-delta_a7)*r7*hu_a7 - ur_a7*r8" //UR
+"ir_a7*r4 + hr_a7*r5 + ur_a7*r8"  // RZ
+"d_a7*ud_a7"  //dead
+"cr_a7*(2*r3*r4/(2*r4+r3))+r4*ix_a7"  //RX
+"(1-((1-und)/(1-alpha)))*r3*ci_a7-r4*ix_a7" // IX
+
+
+
+DERIVED
+// variables derived from dynamic and input variables 
+// can be used in OBSERVABLES and REACTIONS sections
+// [identifier, unitType, "unit", "label", "mathematicalExpression"]
+
+
+OBSERVABLES
+// optional in model deifnition file
+// [identifier, unitType, "unit", "xlabel", flagScaleMaxTo1, flagUseLog10Scale, mathematicalExpression]
+//qua    C   "#"    "conc."                     0               0    "(1-bet)*cr_a1"
+qua_a1    C   "#"    "conc."                     0               0    "ih_a1+ir_a1+hr_a1+hu_a1+ur_a1+ud_a1+dead_a1+rz_a1"
+qua_a2    C   "#"    "conc."                     0               0    "ih_a2+ir_a2+hr_a2+hu_a2+ur_a2+ud_a2+dead_a2+rz_a2"
+qua_a3    C   "#"    "conc."                     0               0    "ih_a3+ir_a3+hr_a3+hu_a3+ur_a3+ud_a3+dead_a3+rz_a3"
+qua_a4    C   "#"    "conc."                     0               0    "ih_a4+ir_a4+hr_a4+hu_a4+ur_a4+ud_a4+dead_a4+rz_a4"
+qua_a5    C   "#"    "conc."                     0               0    "ih_a5+ir_a5+hr_a5+hu_a5+ur_a5+ud_a5+dead_a5+rz_a5"
+qua_a6    C   "#"    "conc."                     0               0    "ih_a6+ir_a6+hr_a6+hu_a6+ur_a6+ud_a6+dead_a6+rz_a6"
+qua_a7    C   "#"    "conc."                     0               0    "ih_a7+ir_a7+hr_a7+hu_a7+ur_a7+ud_a7+dead_a7+rz_a7"
+qua    C   "#"    "conc."                     0               0    "ih_a1+ir_a1+hr_a1+hu_a1+ur_a1+ud_a1+dead_a1+rz_a1+ih_a2+ir_a2+hr_a2+hu_a2+ur_a2+ud_a2+dead_a2+rz_a2+ih_a3+ir_a3+hr_a3+hu_a3+ur_a3+ud_a3+dead_a3+rz_a3+ih_a4+ir_a4+hr_a4+hu_a4+ur_a4+ud_a4+dead_a4+rz_a4+ih_a5+ir_a5+hr_a5+hu_a5+ur_a5+ud_a5+dead_a5+rz_a5+ih_a6+ir_a6+hr_a6+hu_a6+ur_a6+ud_a6+dead_a6+rz_a6+ih_a7+ir_a7+hr_a7+hu_a7+ur_a7+ud_a7+dead_a7+rz_a7"
+hos    C   "#"    "conc."                     0               0    "hu_a1+hr_a1+hu_a2+hr_a2+hu_a3+hr_a3+hu_a4+hr_a4+hu_a5+hr_a5+hu_a6+hr_a6+hu_a7+hr_a7"
+icu    C   "#"    "conc."                     0               0    "ud_a1+ur_a1+ud_a2+ur_a2+ud_a3+ur_a3+ud_a4+ur_a4+ud_a5+ur_a5+ud_a6+ur_a6+ud_a7+ur_a7"
+recN    C   "#"    "conc."                     0               0    "rz_a1"
+ddead_a1    C   "#"    "conc."                     0               0    "dead_a1"
+ddead_a2    C   "#"    "conc."                     0               0    "dead_a2"
+ddead_a3    C   "#"    "conc."                     0               0    "dead_a3"
+ddead_a4    C   "#"    "conc."                     0               0    "dead_a4"
+ddead_a5    C   "#"    "conc."                     0               0    "dead_a5"
+ddead_a6    C   "#"    "conc."                     0               0    "dead_a6"
+ddead_a7    C   "#"    "conc."                     0               0    "dead_a7"
+ddead    C   "#"    "conc."                     0               0    "dead_a1+dead_a2+dead_a3+dead_a4+dead_a5+dead_a6+dead_a7"
+
+
+
+
+
+ERRORS
+// measurement noise for every observable
+// [identifier, mathematicalExpressionForNoise]
+// Alternatively:
+// Define noise in data sheet: observable name + _std
+// change ar.config.fiterrors = -1 and for visualization 
+// change ar.config.ploterrots = 1
+qua_a1   "sd_qua"
+qua_a2   "sd_qua"
+qua_a3   "sd_qua"
+qua_a4   "sd_qua"
+qua_a5   "sd_qua"
+qua_a6   "sd_qua"
+qua_a7   "sd_qua"
+qua   "sd_qua"
+hos   "sd_qua"
+icu   "sd_qua"
+recN   "sd_qua"
+ddead_a1   "sd_qua"
+ddead_a2   "sd_qua"
+ddead_a3   "sd_qua"
+ddead_a4   "sd_qua"
+ddead_a5   "sd_qua"
+ddead_a6   "sd_qua"
+ddead_a7   "sd_qua"
+ddead   "sd_qua"
+
+
+SUBSTITUTIONS
+
+
+CONDITIONS
+// Define initial conditions   
+init_sus_a1      "15620000"
+init_exp_a1      "266"
+init_ci_a1              "0"
+init_cr_a1                "0" 
+init_ih_a1     "0"
+init_ir_a1     "0"
+init_hu_a1     "0"
+init_hr_a1     "0"
+init_ud_a1     "0"
+init_ur_a1     "0"
+init_rz_a1     "0"
+init_dead_a1     "0"
+init_rx_a1     "0"
+init_ix_a1     "0"
+//
+init_sus_a2      "8660000"
+init_exp_a2      "804"
+init_ci_a2              "0"
+init_cr_a2                "0" 
+init_ih_a2     "0"
+init_ir_a2     "0"
+init_hu_a2     "0"
+init_hr_a2     "0"
+init_ud_a2     "0"
+init_ur_a2     "0"
+init_rz_a2     "0"
+init_dead_a2     "0"
+init_rx_a2     "0"
+init_ix_a2     "0"
+//
+init_sus_a3      "8900000"
+init_exp_a3      "915"
+init_ci_a3              "0"
+init_cr_a3                "0" 
+init_ih_a3     "0"
+init_ir_a3     "0"
+init_hu_a3     "0"
+init_hr_a3     "0"
+init_ud_a3     "0"
+init_ur_a3     "0"
+init_rz_a3     "0"
+init_dead_a3     "0"
+init_rx_a3     "0"
+init_ix_a3     "0"
+//
+init_sus_a4      "8420000"
+init_exp_a4      "963"
+init_ci_a4              "0"
+init_cr_a4                "0" 
+init_ih_a4     "0"
+init_ir_a4     "0"
+init_hu_a4     "0"
+init_hr_a4     "0"
+init_ud_a4     "0"
+init_ur_a4     "0"
+init_rz_a4     "0"
+init_dead_a4     "0"
+init_rx_a4     "0"
+init_ix_a4     "0"
+//
+init_sus_a5      "9070000"
+init_exp_a5      "1099"
+init_ci_a5              "0"
+init_cr_a5                "0" 
+init_ih_a5     "0"
+init_ir_a5     "0"
+init_hu_a5     "0"
+init_hr_a5     "0"
+init_ud_a5     "0"
+init_ur_a5     "0"
+init_rz_a5     "0"
+init_dead_a5     "0"
+init_rx_a5     "0"
+init_ix_a5     "0"
+//
+init_sus_a6      "7130000"
+init_exp_a6      "698"
+init_ci_a6              "0"
+init_cr_a6                "0" 
+init_ih_a6     "0"
+init_ir_a6     "0"
+init_hu_a6     "0"
+init_hr_a6     "0"
+init_ud_a6     "0"
+init_ur_a6     "0"
+init_rz_a6     "0"
+init_dead_a6     "0"
+init_rx_a6     "0"
+init_ix_a6     "0"
+//
+init_sus_a7      "9020000"
+init_exp_a7      "2152"
+init_ci_a7              "0"
+init_cr_a7                "0" 
+init_ih_a7     "0"
+init_ir_a7     "0"
+init_hu_a7     "0"
+init_hr_a7     "0"
+init_ud_a7     "0"
+init_ur_a7     "0"
+init_rz_a7     "0"
+init_dead_a7     "0"
+init_rx_a7     "0"
+init_ix_a7     "0"
+
+
+
+
+
+
+
+
+PARAMETERS
+// optinal section
+// can be used to save final parameters
+// label    value       qFit    qLog10  lbExtern    ubExtern      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
